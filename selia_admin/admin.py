@@ -155,7 +155,7 @@ class EventTypeForm(forms.ModelForm):
         fields = ('__all__')
         widgets = {
             'should_imply': autocomplete.ModelSelect2Multiple(
-                url='selia:terms_autocomplete')
+                url='irekua_autocomplete:terms_autocomplete')
         }
 
 
