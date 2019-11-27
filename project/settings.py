@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'irekua_database',
     'selia_admin',
+    'selia_visualizers',
+    'selia_annotator',
 ]
 
 

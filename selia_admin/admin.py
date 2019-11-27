@@ -53,6 +53,7 @@ from irekua_database import models
     models.Term,
     models.TermSuggestion,
     models.TermType,
+    models.Visualizer,
 )
 class DatabaseAdmin(admin.ModelAdmin):
     pass
