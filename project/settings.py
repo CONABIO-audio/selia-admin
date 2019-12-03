@@ -3,7 +3,7 @@ import os
 from irekua_dev_settings.settings import *
 from irekua_database.settings import *
 from selia_admin.settings import *
-from selia_visualizer.settings import *
+from selia_visualizers.settings import *
 from selia_annotator.settings import *
 
 
