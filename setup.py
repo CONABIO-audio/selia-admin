@@ -7,6 +7,12 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
+
+version = {}
+with open("selia_admin/version.py") as fp:
+    exec(fp.read(), version)
+
+
 setup(
     name='selia-admin',
     version='0.1',
@@ -20,9 +26,9 @@ setup(
     author_email='erobredo@conabio.gob.mx, smartinez@conabio.gob.mx',
     install_requires=[
         'irekua-database',
-        'irekua-autocomplete',
-        'django-autocomplete-light',
-        'six',
+        'irekua-models',
+        'selia_visualizers',
+        'selia_annotator',
     ],
     classifiers=[
         'Environment :: Web Environment',

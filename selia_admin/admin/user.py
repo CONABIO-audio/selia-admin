@@ -1,69 +1,20 @@
 from django import forms
-from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import gettext_lazy as _
 
-from dal import autocomplete
 from irekua_database import models
-
-
-@admin.register(
-    models.Annotation,
-    models.AnnotationTool,
-    models.AnnotationType,
-    models.AnnotationVote,
-    models.Collection,
-    models.CollectionDevice,
-    models.CollectionDeviceType,
-    models.CollectionItemType,
-    models.CollectionRole,
-    models.CollectionSite,
-    models.CollectionType,
-    models.CollectionUser,
-    models.Device,
-    models.DeviceBrand,
-    models.DeviceType,
-    models.Entailment,
-    models.EntailmentType,
-    models.Institution,
-    models.Item,
-    models.ItemType,
-    models.Licence,
-    models.LicenceType,
-    models.Locality,
-    models.LocalityType,
-    models.MetaCollection,
-    models.MimeType,
-    models.PhysicalDevice,
-    models.Role,
-    models.SamplingEvent,
-    models.SamplingEventDevice,
-    models.SamplingEventType,
-    models.SamplingEventTypeDeviceType,
-    models.SecondaryItem,
-    models.Site,
-    models.SiteDescriptor,
-    models.SiteDescriptorType,
-    models.SiteType,
-    models.Source,
-    models.Synonym,
-    models.SynonymSuggestion,
-    models.Tag,
-    models.Term,
-    models.TermSuggestion,
-    models.TermType,
-    models.Visualizer,
-)
-class DatabaseAdmin(admin.ModelAdmin):
-    pass
 
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
-    password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
-    password2 = forms.CharField(label=_('Password confirmation'), widget=forms.PasswordInput)
+    password1 = forms.CharField(
+        label=_('Password'),
+        widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label=_('Password confirmation'),
+        widget=forms.PasswordInput)
 
     class Meta:
         model = models.User
@@ -145,24 +96,11 @@ class UserAdmin(BaseUserAdmin):
             'is_developer'
         )}),
     )
-    search_fields = ('email', 'username', 'first_name', 'last_name', 'institution')
+    search_fields = (
+        'email',
+        'username',
+        'first_name',
+        'last_name',
+        'institution')
     ordering = ('username', )
     filter_horizontal = ()
-
-
-class EventTypeForm(forms.ModelForm):
-    class Meta:
-        model = models.EventType
-        fields = ('__all__')
-        widgets = {
-            'should_imply': autocomplete.ModelSelect2Multiple(
-                url='irekua_autocomplete:terms_autocomplete')
-        }
-
-
-class EventType(admin.ModelAdmin):
-    form = EventTypeForm
-
-
-admin.site.register(models.EventType, EventType)
-admin.site.register(models.User, UserAdmin)
