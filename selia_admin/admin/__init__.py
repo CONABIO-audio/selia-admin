@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from irekua_database import models
+from irekua_models import models as mmodels
 from selia_admin.admin.types import EventTypeAdmin
 from selia_admin.admin.types import TermTypeAdmin
 from selia_admin.admin.types import AnnotationTypeAdmin
@@ -11,6 +12,9 @@ from selia_admin.admin.user import UserAdmin
 from selia_admin.admin.item import ItemAdmin
 from selia_admin.admin.sampling_events import SamplingEventAdmin
 from selia_admin.admin.sampling_events import SamplingEventDeviceAdmin
+from selia_admin.admin.models import ModelAdmin
+from selia_admin.admin.models import ModelVersionAdmin
+from selia_admin.admin.models import ModelPredictionAdmin
 
 
 @admin.register(
@@ -66,3 +70,6 @@ admin.site.register(models.Item, ItemAdmin)
 admin.site.register(models.SamplingEvent, SamplingEventAdmin)
 admin.site.register(models.SamplingEventDevice, SamplingEventDeviceAdmin)
 admin.site.register(models.Tag, TagAdmin)
+admin.site.register(mmodels.Model, ModelAdmin)
+admin.site.register(mmodels.ModelVersion, ModelVersionAdmin)
+admin.site.register(mmodels.ModelPrediction, ModelPredictionAdmin)
