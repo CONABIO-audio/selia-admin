@@ -15,7 +15,7 @@ with open("selia_admin/version.py") as fp:
 
 setup(
     name='selia-admin',
-    version='0.1',
+    version=version['__version__'],
     packages=find_packages(),
     include_package_data=True,
     license='BSD License',
