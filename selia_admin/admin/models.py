@@ -40,6 +40,7 @@ class ModelVersionAdmin(CustomModelAdmin):
     list_display_links = ('version', )
     list_filter = ('created_on', 'created_by')
     list_display = (
+        'id',
         'model',
         'version',
         'created_on'
