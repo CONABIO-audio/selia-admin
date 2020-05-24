@@ -15,19 +15,19 @@ from selia_admin.admin.sampling_events import SamplingEventDeviceAdmin
 from selia_admin.admin.models import ModelAdmin
 from selia_admin.admin.models import ModelVersionAdmin
 from selia_admin.admin.models import ModelPredictionAdmin
+from selia_admin.admin.data_collections import CollectionAdmin
+from selia_admin.admin.data_collections import CollectionTypeAdmin
 
 
 @admin.register(
     irekua_database.Annotation,
     irekua_database.AnnotationTool,
     irekua_database.AnnotationVote,
-    irekua_database.Collection,
     irekua_database.CollectionDevice,
     irekua_database.CollectionDeviceType,
     irekua_database.CollectionItemType,
     irekua_database.CollectionRole,
     irekua_database.CollectionSite,
-    irekua_database.CollectionType,
     irekua_database.CollectionUser,
     irekua_database.Device,
     irekua_database.DeviceBrand,
@@ -73,3 +73,5 @@ admin.site.register(irekua_database.Tag, TagAdmin)
 admin.site.register(irekua_models.Model, ModelAdmin)
 admin.site.register(irekua_models.ModelVersion, ModelVersionAdmin)
 admin.site.register(irekua_models.ModelPrediction, ModelPredictionAdmin)
+admin.site.register(irekua_database.Collection, CollectionAdmin)
+admin.site.register(irekua_database.CollectionType, CollectionTypeAdmin)
