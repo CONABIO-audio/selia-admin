@@ -7,6 +7,7 @@ from selia_admin.admin.types import TermTypeAdmin
 from selia_admin.admin.types import AnnotationTypeAdmin
 from selia_admin.admin.types import ItemTypeAdmin
 from selia_admin.admin.terms import TermAdmin
+from selia_admin.admin.terms import EntailmentAdmin
 from selia_admin.admin.terms import TagAdmin
 from selia_admin.admin.user import UserAdmin
 from selia_admin.admin.item import ItemAdmin
@@ -32,7 +33,6 @@ from selia_admin.admin.data_collections import CollectionTypeAdmin
     irekua_database.Device,
     irekua_database.DeviceBrand,
     irekua_database.DeviceType,
-    irekua_database.Entailment,
     irekua_database.EntailmentType,
     irekua_database.Institution,
     irekua_database.Licence,
@@ -63,6 +63,7 @@ class DatabaseAdmin(admin.ModelAdmin):
 admin.site.register(irekua_database.EventType, EventTypeAdmin)
 admin.site.register(irekua_database.User, UserAdmin)
 admin.site.register(irekua_database.Term, TermAdmin)
+admin.site.register(irekua_database.Entailment, EntailmentAdmin)
 admin.site.register(irekua_database.TermType, TermTypeAdmin)
 admin.site.register(irekua_database.AnnotationType, AnnotationTypeAdmin)
 admin.site.register(irekua_database.ItemType, ItemTypeAdmin)
