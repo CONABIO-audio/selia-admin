@@ -101,6 +101,6 @@ class UserAdmin(BaseUserAdmin):
         'username',
         'first_name',
         'last_name',
-        'institution')
+        'institution__institution_name')
     ordering = ('username', )
     filter_horizontal = ()
